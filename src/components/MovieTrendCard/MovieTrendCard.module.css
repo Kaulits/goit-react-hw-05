@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+}
+
+.filmlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.poster {
+    max-height: 200px;
+    max-width: 200px;
+}
