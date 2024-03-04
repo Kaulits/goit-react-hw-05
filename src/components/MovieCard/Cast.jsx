@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchActors } from 'services/api';
+import s from './Cast.module.css';
 
 const Cast = () => {
-  return (
-    <div>
-          <img src='#' alt='1'></img>
-          <h2>Actor:</h2>
-          <p>Character:</p>
-    </div>
-  )
+    const { id } = useParams();
+    const [actors, setActors] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetchActors(id)
+            .then(data => setActors(data))
+            .catch(err => setError(err.message));
+    }, [id]);
+
+    if (!actors) {
+        return <h2>Loading...</h2>;
+    }
+    console.log(error);
+    return (
+        <div className={s.wrapper}>
+            {actors.map(actor => (
+                <div><ul className={s.actorslist}><li key={actor.id}>
+                    <img className={s.actorimg} src={actor.profile_path
+                        ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                        : `https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-1.jpg`}
+                        alt={actor.name} />
+                    <h2 className={s.name}>Actor: {actor.name}</h2>
+                    <p className={s.character}>Character: {actor.character}</p>
+                </li></ul></div>
+                
+            ))}
+        </div>
+    );
 }
 
-export default Cast
+export default Cast;
