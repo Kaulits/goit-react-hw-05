@@ -21,7 +21,7 @@ const Cast = () => {
     return (
         <div className={s.wrapper}>
             {actors.map(actor => (
-                <div><ul className={s.actorslist}><li key={actor.id}>
+                <div key={actor.id}><ul className={s.actorslist}><li key={actor.id}>
                     <img className={s.actorimg} src={actor.profile_path
                         ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
                         : `https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-1.jpg`}

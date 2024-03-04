@@ -8,6 +8,8 @@ const Reviews = () => {
     const [reviews, setReviews] = useState(null);
     const [error, setError] = useState(null);
 
+console.log(error)
+
     useEffect(() => {
         fetchReviews(id)
             .then(data => setReviews(data))
@@ -26,10 +28,10 @@ const Reviews = () => {
     return (
         <div className={s.wrapper}>
             {reviews.map(review => (
-                <div><ul className={s.actorslist}><li key={review.id}>
+                <ul  key={review.id} className={s.actorslist}><li key={review.id}>
                     <h2 className={s.name}>Author: {review.author}</h2>
                     <p className={s.character}>{review.content}</p>
-                </li></ul></div>
+                </li></ul>
                 
             ))}
         </div>

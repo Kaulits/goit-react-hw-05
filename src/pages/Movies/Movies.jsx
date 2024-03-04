@@ -5,6 +5,7 @@ import s from './Movies.module.css'
 
 import MovieTrendCard from 'components/MovieTrendCard/MovieTrendCard';
 
+
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
 
@@ -17,8 +18,11 @@ const Movies = () => {
     }
   };
 
+
+
   return (
     <div>
+       
       <SearchForm onSearch={handleSearch} />
       <div className={s.wrapper}><ul className={s.wrapper}>
         {searchResults.map(movie => (

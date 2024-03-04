@@ -1,4 +1,4 @@
-import MovieTrendCard from 'components/MovieTrendCard/MovieTrendCard'
+import MovieCard from 'components/MovieTrendCard/MovieTrendCard'
 import React, { useEffect, useState } from 'react'
 import { fetchTrending } from 'services/api'
 import s from './TrendMovies.module.css'
@@ -20,7 +20,7 @@ const TrendMovies = () => {
       ) : (
         <div className={s.wrapper}>
           {movies && movies.map(movie => (
-            <MovieTrendCard key={movie.id} movie={movie} />
+            <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>
       )}
