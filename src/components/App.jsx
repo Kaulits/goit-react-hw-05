@@ -6,6 +6,8 @@ import NotFound from 'pages/NotFound/NotFound';
 import Layout from './Layout';
 import '../index.css'
 import MovieCard from 'pages/MovieCard/MovieCard';
+import Cast from './MovieCard/Cast';
+import Reviews from './MovieCard/Reviews';
 
 
 export const App = () => {
@@ -14,8 +16,13 @@ export const App = () => {
       <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path='movies' element={<Movies />} />
-        <Route path='/:id' element={<MovieCard />} />
+          <Route path='movies' element={<Movies />} />
+          
+          <Route path='/:id' element={<MovieCard />} >
+            <Route path='cast' element={<Cast />} />
+             <Route path='reviews' element={<Reviews />} />
+        </Route>
+        
       
       </Route>
         <Route path='*' element={<NotFound/>} />
