@@ -5,9 +5,16 @@
 .filmlist {
     display: flex;
     flex-direction: column;
+    flex-basis: 80%;
+    text-align: center;
 }
 
 .poster {
     max-height: 200px;
     max-width: 200px;
+    width: 100%;
+    
+        height: auto;
 }
+
+

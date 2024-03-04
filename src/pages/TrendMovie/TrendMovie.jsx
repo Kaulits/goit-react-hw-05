@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { fetchTrending } from 'services/api'
 import s from './TrendMovies.module.css'
 
-
 const TrendMovies = () => {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
@@ -21,7 +20,7 @@ const TrendMovies = () => {
       ) : (
         <div className={s.wrapper}>
           {movies && movies.map(movie => (
-            <MovieTrendCard key={movie.id} {...movie} />
+            <MovieTrendCard key={movie.id} movie={movie} />
           ))}
         </div>
       )}
